@@ -11,9 +11,9 @@ export const APP_CONFIG: Config = {
     whatsapp: "919876543210",
   },
   theme: {
-    primary: "#ffffffff",
-    secondary: "#eeff00ff",
-    accent: "#00ffa6ff",
+    primary: "#0f172a",
+    secondary: "#2563eb", // Blue-600
+    accent: "#f59e0b",
   },
   integrations: {
     webhookUrl: "https://clients.spottt.com/webhook-test/client1",
@@ -22,9 +22,9 @@ export const APP_CONFIG: Config = {
   },
   copy: {
     hero: {
-      eyebrow: "Trusted by 5,000+ Happy Patients across India",
-      headline: "Get Natural Looking Hair & Your Confidence Back in Just 6 Hours",
-      subheadline: "Best Hair Transplant in New Delhi with Life-time Growth Guarantee. No Pain, No Scars, Only Natural Results.",
+      eyebrow: "Trusted by 5,000+ Patients Across India",
+      headline: "Get Natural Looking Hair Back in Just 6 Hours",
+      subheadline: "Advanced FUE Hair Transplant by Certified Surgeons in", // City appended in component
       cta: "Check My Graft Requirement",
     },
     vsl: {

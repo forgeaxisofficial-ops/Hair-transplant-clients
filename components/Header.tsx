@@ -1,33 +1,26 @@
 import React from 'react';
 import { APP_CONFIG } from '../config';
-import { Phone } from 'lucide-react';
 
 const Header: React.FC<{ onCTAClick: () => void }> = ({ onCTAClick }) => {
   return (
-    <header className="sticky top-0 z-50 glass-effect border-b border-slate-200">
-      <div className="max-w-7xl mx-auto px-4 h-16 sm:h-20 flex items-center justify-between">
-        <div className="flex items-center gap-2">
-          <div className="bg-white p-1 rounded-lg shadow-sm">
-             <img src={APP_CONFIG.brand.logo} alt={APP_CONFIG.brand.name} className="h-10 w-auto" />
-          </div>
-          <span className="font-black text-xl text-slate-900 hidden sm:block tracking-tight">{APP_CONFIG.brand.name}</span>
+    <header className="sticky top-0 z-50 glass-header border-b border-slate-200 h-16 sm:h-20">
+      <div className="max-w-7xl mx-auto px-4 h-full flex items-center justify-between gap-4">
+        {/* Left: Logo ONLY */}
+        <div className="flex items-center min-w-0">
+          <img 
+            src={APP_CONFIG.brand.logo} 
+            alt={APP_CONFIG.brand.name} 
+            className="h-8 sm:h-11 w-auto object-contain shrink-0" 
+          />
         </div>
         
-        <div className="flex items-center gap-5">
-          <a 
-            href={`tel:${APP_CONFIG.brand.phone}`} 
-            className="hidden lg:flex items-center gap-2.5 text-slate-900 font-bold hover:text-blue-600 transition-colors"
-          >
-            <div className="w-9 h-9 bg-blue-50 rounded-full flex items-center justify-center text-blue-600">
-               <Phone size={18} fill="currentColor" />
-            </div>
-            <span>{APP_CONFIG.brand.phone}</span>
-          </a>
+        {/* Right: Single CTA Button */}
+        <div className="flex items-center shrink-0">
           <button 
             onClick={onCTAClick}
-            className="bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-2xl font-black text-sm shadow-xl shadow-blue-100 transition-all active:scale-95 whitespace-nowrap"
+            className="btn-brand px-5 sm:px-8 py-2.5 sm:py-3 rounded-lg sm:rounded-xl font-black text-[10px] sm:text-sm uppercase tracking-wider whitespace-nowrap shadow-md transition-all active:scale-95"
           >
-            Free Analysis
+            Get Free Analysis
           </button>
         </div>
       </div>

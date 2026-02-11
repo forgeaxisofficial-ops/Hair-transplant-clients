@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { APP_CONFIG } from '../config';
 import { Award, GraduationCap, MapPin } from 'lucide-react';
@@ -37,8 +36,8 @@ const DoctorBio: React.FC = () => {
           </div>
         </div>
         
-        <div className="order-1 md:order-2">
-          <div className="relative">
+        <div className="order-1 md:order-2 flex justify-center">
+          <div className="relative max-w-sm w-full">
             <div className="absolute -inset-2 bg-gradient-to-tr from-blue-600 to-indigo-600 rounded-3xl blur opacity-20"></div>
             <img 
               src="https://picsum.photos/seed/doctor/600/700" 
