@@ -52,23 +52,56 @@ export const APP_CONFIG: Config = {
         {
           name: "Rahul Mehra",
           city: "Delhi",
-          text: "I was very nervous about the pain, but Dr. Arvind and his team made it so comfortable. The results after 6 months are mind-blowing. My marriage confidence is back!",
+          text: "I was very nervous about the pain, but Dr. Arvind and his team made it so comfortable. The results after 6 months are mind-blowing.",
           image: "https://picsum.photos/seed/p1/100/100",
-          rating: 5
+          rating: 5,
+          beforeImage: "https://picsum.photos/seed/r1b/300/300",
+          afterImage: "https://picsum.photos/seed/r1a/300/300"
         },
         {
           name: "Sandeep Singh",
           city: "Chandigarh",
-          text: "Best decision of my life. The Bio-Enhanced FUE technique is magic. No scars at all, and the density is exactly what I wanted for my frontal area.",
+          text: "Best decision of my life. The Bio-Enhanced FUE technique is magic. No scars at all, and the density is exactly what I wanted.",
           image: "https://picsum.photos/seed/p2/100/100",
-          rating: 5
+          rating: 5,
+          beforeImage: "https://picsum.photos/seed/s1b/300/300",
+          afterImage: "https://picsum.photos/seed/s1a/300/300"
         },
         {
           name: "Amit Kumar",
           city: "Gurgaon",
-          text: "The consultation was very honest. They didn't push for more grafts than needed. The natural look is what matters the most, and they delivered 100%.",
+          text: "The consultation was very honest. They didn't push for more grafts than needed. The natural look is what matters the most.",
           image: "https://picsum.photos/seed/p3/100/100",
-          rating: 5
+          rating: 5,
+          beforeImage: "https://picsum.photos/seed/a1b/300/300",
+          afterImage: "https://picsum.photos/seed/a1a/300/300"
+        },
+        {
+          name: "Vikram Aditya",
+          city: "Noida",
+          text: "My hairline looks exactly how it was in my 20s. Extremely professional staff and top-notch hygiene standards.",
+          image: "https://picsum.photos/seed/p4/100/100",
+          rating: 5,
+          beforeImage: "https://picsum.photos/seed/v1b/300/300",
+          afterImage: "https://picsum.photos/seed/v1a/300/300"
+        },
+        {
+          name: "Deepak Rawat",
+          city: "Faridabad",
+          text: "I compared 5 clinics in Delhi before choosing Radiant. Their FUE Gold technique is superior to everything else I saw.",
+          image: "https://picsum.photos/seed/p5/100/100",
+          rating: 5,
+          beforeImage: "https://picsum.photos/seed/d1b/300/300",
+          afterImage: "https://picsum.photos/seed/d1a/300/300"
+        },
+        {
+          name: "Manish Joshi",
+          city: "Dwarka",
+          text: "Highly recommended for anyone worried about thinning hair. Dr. Arvind is a true artist with hair placement.",
+          image: "https://picsum.photos/seed/p6/100/100",
+          rating: 5,
+          beforeImage: "https://picsum.photos/seed/m1b/300/300",
+          afterImage: "https://picsum.photos/seed/m1a/300/300"
         }
       ]
     },
@@ -91,7 +124,7 @@ export const APP_CONFIG: Config = {
         { q: "Is it permanent?", a: "Yes, the hair transplanted from the donor area (back of the head) is genetically resistant to DHT and will grow for a lifetime." },
         { q: "Can I join office the next day?", a: "Most patients return to work within 48-72 hours. It's a minimally invasive procedure." },
         { q: "Will it look natural?", a: "100%. Our surgeons focus on the angle, depth, and direction of each hair to mimic your natural growth pattern." },
-        { q: "Is the procedure painful?", a: "We use local anesthesia. You might feel a slight prick initially, but the rest of the 6-hour session is painless. You can watch movies or chat!" },
+        { q: "Is the procedure painful?", a: "We use local anesthesia. You might feel a slight prick initially, but the rest of the 6-hour session is painless." },
       ],
     },
   },

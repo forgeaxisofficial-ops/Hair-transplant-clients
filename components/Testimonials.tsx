@@ -1,16 +1,15 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect } from 'react';
 import { APP_CONFIG } from '../config';
 import { Star, ChevronLeft, ChevronRight, Quote } from 'lucide-react';
 
 const Testimonials: React.FC = () => {
   const { testimonials } = APP_CONFIG.copy;
   const [activeIndex, setActiveIndex] = useState(0);
-  const scrollRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     const timer = setInterval(() => {
       setActiveIndex((prev) => (prev + 1) % testimonials.items.length);
-    }, 5000);
+    }, 6000);
     return () => clearInterval(timer);
   }, [testimonials.items.length]);
 
@@ -18,46 +17,59 @@ const Testimonials: React.FC = () => {
   const handlePrev = () => setActiveIndex((prev) => (prev - 1 + testimonials.items.length) % testimonials.items.length);
 
   return (
-    <section className="py-24 bg-white overflow-hidden">
+    <section className="py-24 bg-slate-50 overflow-hidden">
       <div className="max-w-7xl mx-auto px-4">
         <div className="text-center mb-16">
           <h2 className="text-3xl md:text-5xl font-black text-slate-900 mb-4">{testimonials.headline}</h2>
           <div className="w-24 h-1.5 bg-blue-600 mx-auto rounded-full"></div>
         </div>
 
-        <div className="relative max-w-4xl mx-auto">
+        <div className="relative max-w-5xl mx-auto">
           {/* Main Carousel Container */}
-          <div className="relative overflow-hidden rounded-[40px] bg-slate-50 border border-slate-100 shadow-2xl">
+          <div className="relative overflow-hidden rounded-[40px] bg-white border border-slate-100 shadow-2xl">
             <div 
               className="flex transition-transform duration-700 ease-in-out" 
               style={{ transform: `translateX(-${activeIndex * 100}%)` }}
             >
               {testimonials.items.map((item, idx) => (
-                <div key={idx} className="min-w-full p-8 md:p-16 flex flex-col md:flex-row items-center gap-10">
-                  <div className="shrink-0 relative">
-                    <div className="absolute -inset-2 bg-blue-600 rounded-full blur opacity-20"></div>
-                    <img 
-                      src={item.image} 
-                      alt={item.name} 
-                      className="relative w-24 h-24 md:w-40 md:h-40 rounded-full object-cover border-4 border-white shadow-xl" 
-                    />
-                    <div className="absolute -bottom-2 -right-2 bg-blue-600 text-white p-2 rounded-full shadow-lg">
-                      <Quote size={20} />
+                <div key={idx} className="min-w-full p-8 md:p-14 flex flex-col md:flex-row items-stretch gap-8 md:gap-14">
+                  {/* Before/After Visualization */}
+                  <div className="w-full md:w-1/2 flex flex-col gap-3">
+                    <div className="grid grid-cols-2 gap-2 flex-1 min-h-[220px]">
+                      <div className="relative rounded-2xl overflow-hidden border border-slate-100 shadow-sm">
+                        <img src={item.beforeImage} alt="Before" className="w-full h-full object-cover" />
+                        <div className="absolute top-2 left-2 px-2 py-0.5 bg-black/60 backdrop-blur-md text-white text-[9px] font-black rounded-full uppercase tracking-tighter">Day 0</div>
+                      </div>
+                      <div className="relative rounded-2xl overflow-hidden border-2 border-blue-200 shadow-sm">
+                        <img src={item.afterImage} alt="After" className="w-full h-full object-cover" />
+                        <div className="absolute top-2 right-2 px-2 py-0.5 bg-blue-600 text-white text-[9px] font-black rounded-full uppercase tracking-tighter">Result</div>
+                      </div>
+                    </div>
+                    <div className="flex items-center gap-3 px-1">
+                       <img src={item.image} alt={item.name} className="w-10 h-10 rounded-full border-2 border-white shadow-md object-cover" />
+                       <div>
+                         <h4 className="text-sm font-bold text-slate-900">{item.name}</h4>
+                         <p className="text-[10px] text-blue-600 font-bold uppercase tracking-widest">{item.city} Patient</p>
+                       </div>
                     </div>
                   </div>
                   
-                  <div className="flex-1 text-center md:text-left">
-                    <div className="flex justify-center md:justify-start gap-1 mb-4 text-amber-500">
+                  {/* Content */}
+                  <div className="w-full md:w-1/2 flex flex-col justify-center">
+                    <div className="flex gap-1 mb-5 text-amber-500">
                       {[...Array(item.rating)].map((_, i) => (
-                        <Star key={i} size={20} fill="currentColor" />
+                        <Star key={i} size={18} fill="currentColor" />
                       ))}
                     </div>
-                    <p className="text-lg md:text-2xl font-medium text-slate-700 italic leading-relaxed mb-6">
-                      "{item.text}"
-                    </p>
-                    <div>
-                      <h4 className="text-xl font-bold text-slate-900">{item.name}</h4>
-                      <p className="text-blue-600 font-semibold">{item.city} Patient</p>
+                    <div className="relative">
+                      <Quote className="absolute -top-4 -left-6 text-blue-100" size={48} />
+                      <p className="relative text-lg md:text-xl font-medium text-slate-700 italic leading-relaxed mb-8">
+                        "{item.text}"
+                      </p>
+                    </div>
+                    <div className="mt-auto p-4 bg-blue-50/50 rounded-2xl border border-blue-100/50">
+                       <p className="text-xs font-bold text-slate-500 uppercase tracking-widest mb-1">Clinic Verified Result</p>
+                       <p className="text-[10px] text-slate-400 font-medium">Verified by Radiant Hair Clinic Internal Quality Standards.</p>
                     </div>
                   </div>
                 </div>
@@ -68,15 +80,15 @@ const Testimonials: React.FC = () => {
           {/* Navigation Controls */}
           <button 
             onClick={handlePrev}
-            className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-4 md:-translate-x-12 bg-white p-4 rounded-full shadow-xl hover:bg-blue-600 hover:text-white transition-all text-slate-400 z-10 hidden sm:block"
+            className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-4 md:-translate-x-10 bg-white p-3 rounded-full shadow-xl hover:bg-blue-600 hover:text-white transition-all text-slate-400 z-10 hidden sm:block"
           >
-            <ChevronLeft size={24} />
+            <ChevronLeft size={22} />
           </button>
           <button 
             onClick={handleNext}
-            className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-4 md:translate-x-12 bg-white p-4 rounded-full shadow-xl hover:bg-blue-600 hover:text-white transition-all text-slate-400 z-10 hidden sm:block"
+            className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-4 md:translate-x-10 bg-white p-3 rounded-full shadow-xl hover:bg-blue-600 hover:text-white transition-all text-slate-400 z-10 hidden sm:block"
           >
-            <ChevronRight size={24} />
+            <ChevronRight size={22} />
           </button>
 
           {/* Dots */}
@@ -85,7 +97,7 @@ const Testimonials: React.FC = () => {
               <button
                 key={i}
                 onClick={() => setActiveIndex(i)}
-                className={`w-3 h-3 rounded-full transition-all ${activeIndex === i ? 'bg-blue-600 w-8' : 'bg-slate-200'}`}
+                className={`w-2.5 h-2.5 rounded-full transition-all ${activeIndex === i ? 'bg-blue-600 w-8' : 'bg-slate-200'}`}
               />
             ))}
           </div>

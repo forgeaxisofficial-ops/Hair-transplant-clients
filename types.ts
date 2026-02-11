@@ -63,7 +63,15 @@ export interface Config {
     };
     testimonials: {
       headline: string;
-      items: { name: string; city: string; text: string; image: string; rating: number }[];
+      items: { 
+        name: string; 
+        city: string; 
+        text: string; 
+        image: string; 
+        rating: number;
+        beforeImage?: string;
+        afterImage?: string;
+      }[];
     };
     pricing: {
       headline: string;

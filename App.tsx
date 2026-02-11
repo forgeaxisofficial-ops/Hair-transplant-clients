@@ -16,6 +16,7 @@ import Footer from './components/Footer';
 import StickyCTA from './components/StickyCTA';
 import ExitPopup from './components/ExitPopup';
 import Testimonials from './components/Testimonials';
+import QuickCTA from './components/QuickCTA';
 
 const SectionRenderer: React.FC<{ type: SectionType; onCTAClick: () => void }> = ({ type, onCTAClick }) => {
   switch (type) {
@@ -34,7 +35,6 @@ const SectionRenderer: React.FC<{ type: SectionType; onCTAClick: () => void }> =
 };
 
 const App: React.FC = () => {
-  const [showForm, setShowForm] = useState(false);
   const [showExitPopup, setShowExitPopup] = useState(false);
   const formRef = useRef<HTMLDivElement>(null);
 
@@ -51,7 +51,6 @@ const App: React.FC = () => {
 
   const scrollToForm = () => {
     formRef.current?.scrollIntoView({ behavior: 'smooth' });
-    setShowForm(true);
   };
 
   return (
@@ -60,7 +59,13 @@ const App: React.FC = () => {
       
       <main>
         {APP_CONFIG.sectionsOrder.map((section, idx) => (
-          <SectionRenderer key={`${section}-${idx}`} type={section} onCTAClick={scrollToForm} />
+          <React.Fragment key={`${section}-${idx}`}>
+            <SectionRenderer type={section} onCTAClick={scrollToForm} />
+            {/* Inject a quick CTA after every section except the last few for flow */}
+            {idx < APP_CONFIG.sectionsOrder.length - 2 && (
+              <QuickCTA onClick={scrollToForm} />
+            )}
+          </React.Fragment>
         ))}
         
         <section ref={formRef} id="lead-form" className="py-24 bg-white relative">
