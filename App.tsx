@@ -79,6 +79,22 @@ const App: React.FC = () => {
         .btn-brand:active {
           transform: translateY(0);
         }
+
+        .btn-highlight {
+          animation: pulse-glow 2s infinite;
+        }
+
+        @keyframes pulse-glow {
+          0% {
+            box-shadow: 0 0 0 0 rgba(37, 99, 235, 0.4);
+          }
+          70% {
+            box-shadow: 0 0 0 15px rgba(37, 99, 235, 0);
+          }
+          100% {
+            box-shadow: 0 0 0 0 rgba(37, 99, 235, 0);
+          }
+        }
         
         .glass-header {
           background: rgba(255, 255, 255, 0.95);

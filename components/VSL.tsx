@@ -1,6 +1,6 @@
 import React from 'react';
 import { APP_CONFIG } from '../config';
-import { Phone, CheckCircle2, PlayCircle } from 'lucide-react';
+import { Phone, CheckCircle2 } from 'lucide-react';
 
 interface VSLProps {
   onCTAClick: () => void;
@@ -48,18 +48,18 @@ const VSL: React.FC<VSLProps> = ({ onCTAClick }) => {
           *Individual results may vary based on donor density
         </p>
 
-        {/* Primary CTA: Significantly increased size and emphasis */}
+        {/* Primary CTA: Significantly increased size, highlight, and pulse */}
         <div className="mt-12 sm:mt-16">
           <button 
             onClick={onCTAClick}
-            className="w-full sm:w-auto px-10 sm:px-20 py-6 sm:py-8 btn-brand rounded-2xl sm:rounded-[32px] font-black text-xl sm:text-3xl shadow-[0_20px_50px_-10px_rgba(37,99,235,0.4)] transition-all transform hover:scale-105 active:scale-95 hover:shadow-[0_25px_60px_-5px_rgba(37,99,235,0.5)] border-2 border-white/5"
+            className="w-full sm:w-auto px-10 sm:px-24 py-6 sm:py-9 btn-brand btn-highlight rounded-2xl sm:rounded-[40px] font-black text-xl sm:text-4xl shadow-[0_20px_50px_-10px_rgba(37,99,235,0.6)] transition-all transform hover:scale-105 active:scale-95 border-2 border-white/20 uppercase tracking-tight"
           >
             Check My Graft Requirement
           </button>
         </div>
 
-        {/* Benefit Pills & Phone Block: Integrated below CTA with reduced spacing */}
-        <div className="mt-16 sm:mt-20 pt-10 border-t border-slate-800/50">
+        {/* Benefit Pills & Phone Block: Reduced spacing from CTA */}
+        <div className="mt-12 sm:mt-14 pt-10 border-t border-slate-800/50">
           <div className="flex flex-wrap justify-center gap-2 sm:gap-2.5 mb-10">
             {[
               "Pay Per Graft", 
