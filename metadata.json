@@ -1,0 +1,8 @@
+{
+  "name": "Copy of Hair Transplant Template Engine",
+  "description": "A highly configurable landing page framework for hair transplant clinics across India, driven entirely by a single config file.",
+  "requestFramePermissions": [
+    "camera",
+    "microphone"
+  ]
+}
