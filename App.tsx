@@ -102,21 +102,21 @@ const App: React.FC = () => {
           -webkit-backdrop-filter: blur(10px);
         }
       `}</style>
-      
+
       <Header onCTAClick={scrollToForm} />
-      
+
       <main>
         {APP_CONFIG.sectionsOrder.map((section, idx) => (
           <React.Fragment key={`${section}-${idx}`}>
             <SectionRenderer type={section} onCTAClick={scrollToForm} />
-            
+
             {/* Logic for injected CTA between other sections, but NOT after Hero or VSL */}
-            {idx < APP_CONFIG.sectionsOrder.length - 1 && section !== SectionType.Hero && section !== SectionType.VSL && (
+            {idx < APP_CONFIG.sectionsOrder.length - 1 && section !== SectionType.Hero && section !== SectionType.VSL && section !== SectionType.Gallery && section !== SectionType.DoctorBio && section !== SectionType.FAQ && section !== SectionType.Pricing && (
               <QuickCTA onClick={scrollToForm} />
             )}
           </React.Fragment>
         ))}
-        
+
         <section ref={formRef} id="lead-form" className="py-24 bg-white relative">
           <div className="absolute inset-0 bg-slate-50 opacity-40 pointer-events-none"></div>
           <div className="max-w-2xl mx-auto px-4 relative z-10">
@@ -127,7 +127,7 @@ const App: React.FC = () => {
 
       <Footer />
       <StickyCTA />
-      
+
       {showExitPopup && (
         <ExitPopup onClose={() => setShowExitPopup(false)} onCTAClick={() => { setShowExitPopup(false); scrollToForm(); }} />
       )}

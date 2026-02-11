@@ -20,7 +20,7 @@ const LeadForm: React.FC = () => {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setStatus('loading');
-    
+
     try {
       const response = await fetch(integrations.webhookUrl, {
         method: 'POST',
@@ -51,7 +51,7 @@ const LeadForm: React.FC = () => {
       <div className="bg-slate-50 border-2 border-slate-200 p-10 rounded-[48px] text-center shadow-inner">
         <div className="flex justify-center mb-6">
           <div className="w-20 h-20 bg-white rounded-full flex items-center justify-center text-brand-secondary shadow-xl">
-             <CheckCircle2 size={48} />
+            <CheckCircle2 size={48} />
           </div>
         </div>
         <h3 className="text-3xl font-black text-slate-900 mb-3">Analysis Requested!</h3>
@@ -61,19 +61,19 @@ const LeadForm: React.FC = () => {
   }
 
   return (
-    <div className="bg-white p-8 sm:p-14 rounded-[56px] shadow-[0_40px_100px_-20px_rgba(0,0,0,0.1)] border border-slate-100">
-      <div className="text-center mb-10">
-        <h3 className="text-3xl font-black text-slate-900 mb-3 leading-tight">{leadForm.headline}</h3>
-        <p className="text-slate-500 font-medium">{leadForm.subheadline}</p>
+    <div className="bg-white p-6 sm:p-14 rounded-[40px] sm:rounded-[56px] shadow-[0_40px_100px_-20px_rgba(0,0,0,0.1)] border border-slate-100">
+      <div className="text-center mb-8 sm:mb-10">
+        <h3 className="text-2xl sm:text-3xl font-black text-slate-900 mb-2 sm:mb-3 leading-tight">{leadForm.headline}</h3>
+        <p className="text-sm sm:text-base text-slate-500 font-medium">{leadForm.subheadline}</p>
       </div>
 
-      <form onSubmit={handleSubmit} className="space-y-6">
+      <form onSubmit={handleSubmit} className="space-y-4 sm:space-y-6">
         {leadForm.fields.map(field => (
           <div key={field.id}>
             <label className="block text-[10px] font-black text-slate-400 mb-2 uppercase tracking-[0.2em] px-1">
               {field.label} {field.required && <span className="text-red-400">*</span>}
             </label>
-            
+
             {field.type === 'select' ? (
               <div className="relative">
                 <select
@@ -81,7 +81,7 @@ const LeadForm: React.FC = () => {
                   required={field.required}
                   value={formData[field.id] || ''}
                   onChange={handleChange}
-                  className="w-full px-6 py-4 rounded-2xl border-2 border-slate-50 focus:ring-4 focus:ring-brand-secondary/5 focus:border-brand-secondary outline-none transition-all appearance-none bg-slate-50 font-bold text-slate-700"
+                  className="w-full px-5 py-3 sm:px-6 sm:py-4 rounded-xl sm:rounded-2xl border-2 border-slate-50 focus:ring-4 focus:ring-brand-secondary/5 focus:border-brand-secondary outline-none transition-all appearance-none bg-slate-50 font-bold text-slate-700 text-sm sm:text-base"
                 >
                   <option value="" disabled>Select option</option>
                   {field.options?.map(opt => (
@@ -89,7 +89,7 @@ const LeadForm: React.FC = () => {
                   ))}
                 </select>
                 <div className="absolute right-5 top-1/2 -translate-y-1/2 pointer-events-none text-slate-400">
-                  <svg width="12" height="8" viewBox="0 0 12 8" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round"><path d="M1 1L6 6L11 1"/></svg>
+                  <svg width="12" height="8" viewBox="0 0 12 8" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round"><path d="M1 1L6 6L11 1" /></svg>
                 </div>
               </div>
             ) : (
@@ -100,7 +100,7 @@ const LeadForm: React.FC = () => {
                 required={field.required}
                 value={formData[field.id] || ''}
                 onChange={handleChange}
-                className="w-full px-6 py-4 rounded-2xl border-2 border-slate-50 focus:ring-4 focus:ring-brand-secondary/5 focus:border-brand-secondary outline-none transition-all bg-slate-50 font-bold text-slate-800"
+                className="w-full px-5 py-3 sm:px-6 sm:py-4 rounded-xl sm:rounded-2xl border-2 border-slate-50 focus:ring-4 focus:ring-brand-secondary/5 focus:border-brand-secondary outline-none transition-all bg-slate-50 font-bold text-slate-800 text-sm sm:text-base"
               />
             )}
           </div>
@@ -109,9 +109,9 @@ const LeadForm: React.FC = () => {
         <button
           type="submit"
           disabled={status === 'loading'}
-          className="w-full btn-brand font-black py-5 sm:py-6 rounded-2xl flex items-center justify-center gap-4 shadow-xl transition-all text-xl mt-4"
+          className="w-full btn-brand font-black py-4 sm:py-6 rounded-xl sm:rounded-2xl flex items-center justify-center gap-3 sm:gap-4 shadow-xl transition-all text-lg sm:text-xl mt-2 sm:mt-4"
         >
-          {status === 'loading' ? <Loader2 className="animate-spin" /> : <Send size={24} />}
+          {status === 'loading' ? <Loader2 className="animate-spin" /> : <Send size={20} className="sm:w-6 sm:h-6" />}
           {leadForm.buttonText}
         </button>
       </form>
