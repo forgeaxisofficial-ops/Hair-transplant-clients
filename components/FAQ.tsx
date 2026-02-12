@@ -7,7 +7,7 @@ const FAQItem: React.FC<{ q: string; a: string }> = ({ q, a }) => {
   const [isOpen, setIsOpen] = useState(false);
   return (
     <div className="border-b border-slate-200 py-4">
-      <button 
+      <button
         onClick={() => setIsOpen(!isOpen)}
         className="w-full flex items-center justify-between text-left group"
       >
@@ -25,9 +25,9 @@ const FAQItem: React.FC<{ q: string; a: string }> = ({ q, a }) => {
 
 const FAQ: React.FC = () => {
   return (
-    <section className="py-20 bg-white">
+    <section className="py-12 bg-white">
       <div className="max-w-3xl mx-auto px-4">
-        <h2 className="text-3xl font-extrabold text-slate-900 mb-10 text-center">
+        <h2 className="text-3xl font-extrabold text-slate-900 mb-8 text-center">
           {APP_CONFIG.copy.faq.headline}
         </h2>
         <div className="space-y-2">

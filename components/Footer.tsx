@@ -4,9 +4,9 @@ import { APP_CONFIG } from '../config';
 
 const Footer: React.FC = () => {
   return (
-    <footer className="bg-slate-900 text-slate-400 py-12 px-4">
+    <footer className="bg-slate-900 text-slate-400 py-8 px-4">
       <div className="max-w-7xl mx-auto">
-        <div className="grid md:grid-cols-2 gap-8 items-center border-b border-slate-800 pb-8 mb-8 text-center md:text-left">
+        <div className="grid md:grid-cols-2 gap-8 items-center border-b border-slate-800 pb-6 mb-6 text-center md:text-left">
           <div>
             <h4 className="text-white font-bold text-xl mb-2">{APP_CONFIG.brand.name}</h4>
             <p className="text-sm">Premium Hair Restoration Excellence in {APP_CONFIG.brand.city}.</p>

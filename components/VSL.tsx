@@ -8,15 +8,15 @@ interface VSLProps {
 
 const VSL: React.FC<VSLProps> = ({ onCTAClick }) => {
   return (
-    <section className="py-16 sm:py-24 bg-slate-900 text-white overflow-hidden">
+    <section className="py-12 sm:py-16 bg-slate-900 text-white overflow-hidden">
       <div className="max-w-5xl mx-auto px-4 text-center">
         {/* Headline: Show full text without ellipses */}
-        <h2 className="text-2xl sm:text-4xl font-black mb-8 leading-tight px-2">
+        <h2 className="text-2xl sm:text-4xl font-black mb-6 leading-tight px-2">
           {APP_CONFIG.copy.vsl.headline}
         </h2>
 
         {/* Pre-video Bullet Block */}
-        <div className="flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-8 mb-10 text-slate-300">
+        <div className="flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-8 mb-8 text-slate-300">
           {[
             "Painless FUE Gold Technique",
             "98% Graft Survival Rate",
@@ -49,7 +49,7 @@ const VSL: React.FC<VSLProps> = ({ onCTAClick }) => {
         </p>
 
         {/* Primary CTA: Significantly increased size, highlight, and pulse */}
-        <div className="mt-12 sm:mt-16">
+        <div className="mt-10 sm:mt-12">
           <button
             onClick={onCTAClick}
             className="w-full sm:w-auto px-10 sm:px-24 py-6 sm:py-9 btn-brand btn-highlight rounded-2xl sm:rounded-[40px] font-black text-xl sm:text-4xl shadow-[0_20px_50px_-10px_rgba(37,99,235,0.6)] transition-all transform hover:scale-105 active:scale-95 border-2 border-white/20 uppercase tracking-tight"
@@ -59,7 +59,7 @@ const VSL: React.FC<VSLProps> = ({ onCTAClick }) => {
         </div>
 
         {/* Benefit Pills & Phone Block: Reduced spacing from CTA */}
-        <div className="mt-1 sm:mt-14 pt-10 border-t border-slate-800/50">
+        <div className="mt-1 sm:mt-10 pt-10 border-t border-slate-800/50">
           <div className="flex flex-wrap justify-center gap-2 sm:gap-2.5 mb-10">
             {[
               "Pay Per Graft",

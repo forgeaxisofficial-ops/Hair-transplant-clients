@@ -10,9 +10,9 @@ const steps = [
 
 const ProcessSteps: React.FC = () => {
   return (
-    <section className="py-20 bg-slate-50">
+    <section className="py-12 bg-slate-50">
       <div className="max-w-7xl mx-auto px-4">
-        <h2 className="text-3xl font-extrabold text-slate-900 mb-16 text-center">Your 4-Step Journey to Full Hair</h2>
+        <h2 className="text-3xl font-extrabold text-slate-900 mb-10 text-center">Your 4-Step Journey to Full Hair</h2>
         <div className="grid md:grid-cols-4 gap-8">
           {steps.map((step, i) => (
             <div key={i} className="relative text-center group">

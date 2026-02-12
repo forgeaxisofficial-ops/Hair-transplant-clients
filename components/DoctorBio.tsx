@@ -4,13 +4,13 @@ import { Award, GraduationCap, MapPin } from 'lucide-react';
 
 const DoctorBio: React.FC = () => {
   return (
-    <section className="py-20 bg-white">
-      <div className="max-w-7xl mx-auto px-4 grid md:grid-cols-2 gap-12 items-center">
+    <section className="py-12 bg-white">
+      <div className="max-w-7xl mx-auto px-4 grid md:grid-cols-2 gap-8 items-center">
         <div className="order-2 md:order-1">
-          <h2 className="text-sm font-bold text-blue-600 uppercase tracking-widest mb-3">Expert Surgeon</h2>
-          <h3 className="text-3xl md:text-4xl font-extrabold text-slate-900 mb-6">Meet {APP_CONFIG.brand.doctorName}</h3>
+          <h2 className="text-sm font-bold text-blue-600 uppercase tracking-widest mb-2">Expert Surgeon</h2>
+          <h3 className="text-3xl md:text-4xl font-extrabold text-slate-900 mb-4">Meet {APP_CONFIG.brand.doctorName}</h3>
 
-          <p className="text-slate-600 mb-8 leading-relaxed">
+          <p className="text-slate-600 mb-6 leading-relaxed">
             With over 12 years of experience and 5,000+ successful transplants, {APP_CONFIG.brand.doctorName} is a pioneer in the Bio-Enhanced FUE technique. Known for his "natural hairline artistry," he has treated celebrities, corporate leaders, and patients from all over India.
           </p>
 

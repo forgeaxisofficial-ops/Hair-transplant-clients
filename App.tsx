@@ -111,13 +111,13 @@ const App: React.FC = () => {
             <SectionRenderer type={section} onCTAClick={scrollToForm} />
 
             {/* Logic for injected CTA between other sections, but NOT after Hero or VSL */}
-            {idx < APP_CONFIG.sectionsOrder.length - 1 && section !== SectionType.Hero && section !== SectionType.VSL && section !== SectionType.Gallery && section !== SectionType.DoctorBio && section !== SectionType.FAQ && section !== SectionType.Pricing && (
+            {idx < APP_CONFIG.sectionsOrder.length - 1 && section !== SectionType.Hero && section !== SectionType.VSL && section !== SectionType.Gallery && section !== SectionType.DoctorBio && section !== SectionType.FAQ && section !== SectionType.Pricing && section !== SectionType.ProcessSteps && (
               <QuickCTA onClick={scrollToForm} />
             )}
           </React.Fragment>
         ))}
 
-        <section ref={formRef} id="lead-form" className="py-24 bg-white relative">
+        <section ref={formRef} id="lead-form" className="py-16 bg-white relative">
           <div className="absolute inset-0 bg-slate-50 opacity-40 pointer-events-none"></div>
           <div className="max-w-2xl mx-auto px-4 relative z-10">
             <LeadForm />

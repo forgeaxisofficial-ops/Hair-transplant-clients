@@ -11,9 +11,9 @@ export const APP_CONFIG: Config = {
     whatsapp: "919876543210",
   },
   theme: {
-    primary: "#0f172a",
-    secondary: "#2563eb", // Blue-600
-    accent: "#f59e0b",
+    primary: "#e1ff00ff",
+    secondary: "#ff0000ff", // Blue-600
+    accent: "#ffffffff",
   },
   integrations: {
     webhookUrl: "https://clients.spottt.com/webhook-test/client1",
@@ -23,7 +23,8 @@ export const APP_CONFIG: Config = {
   copy: {
     hero: {
       eyebrow: "Trusted by 5,000+ Patients Across India",
-      headline: "Get Natural Looking Hair Back in Just 6 Hours",
+      headline: "Get Natural Looking Hair Back in Just",
+      headlineHighlight: " 6 Hours",
       subheadline: "Advanced FUE Hair Transplant by Certified Surgeons in", // City appended in component
       cta: "Check My Graft Requirement",
     },

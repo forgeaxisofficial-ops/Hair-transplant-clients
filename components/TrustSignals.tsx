@@ -5,11 +5,11 @@ import * as LucideIcons from 'lucide-react';
 
 const TrustSignals: React.FC = () => {
   const { offers } = APP_CONFIG.copy;
-  
+
   return (
-    <section className="py-20 bg-white">
+    <section className="py-10 bg-white">
       <div className="max-w-7xl mx-auto px-4">
-        <h2 className="text-3xl font-extrabold text-slate-900 mb-12 text-center">{offers.headline}</h2>
+        <h2 className="text-3xl font-extrabold text-slate-900 mb-8 text-center">{offers.headline}</h2>
         <div className="grid md:grid-cols-3 gap-8">
           {offers.items.map((item, idx) => {
             // @ts-ignore - dynamic icon access

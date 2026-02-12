@@ -46,6 +46,7 @@ export interface Config {
     hero: {
       eyebrow: string;
       headline: string;
+      headlineHighlight: string;
       subheadline: string;
       cta: string;
     };
@@ -63,11 +64,11 @@ export interface Config {
     };
     testimonials: {
       headline: string;
-      items: { 
-        name: string; 
-        city: string; 
-        text: string; 
-        image: string; 
+      items: {
+        name: string;
+        city: string;
+        text: string;
+        image: string;
         rating: number;
         beforeImage?: string;
         afterImage?: string;

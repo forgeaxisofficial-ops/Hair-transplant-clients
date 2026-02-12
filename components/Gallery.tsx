@@ -4,13 +4,13 @@ import { APP_CONFIG } from '../config';
 
 const Gallery: React.FC = () => {
   return (
-    <section className="py-20 bg-slate-50">
+    <section className="py-12 bg-slate-50">
       <div className="max-w-7xl mx-auto px-4">
-        <div className="text-center mb-16">
+        <div className="text-center mb-10">
           <h2 className="text-3xl md:text-4xl font-extrabold text-slate-900 mb-4">{APP_CONFIG.copy.gallery.headline}</h2>
           <div className="w-20 h-1.5 bg-blue-600 mx-auto rounded-full"></div>
         </div>
-        
+
         <div className="grid md:grid-cols-2 gap-8">
           {APP_CONFIG.copy.gallery.images.map((img, idx) => (
             <div key={idx} className="bg-white rounded-3xl overflow-hidden shadow-xl group">
