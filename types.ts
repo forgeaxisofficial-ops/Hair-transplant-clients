@@ -35,6 +35,9 @@ export interface Config {
     primary: string; // Hex color
     secondary: string; // Hex color
     accent: string;
+    headlineHighlight: string;
+    stars: string;
+    footerText: string;
   };
   integrations: {
     webhookUrl: string;
@@ -83,6 +86,11 @@ export interface Config {
     faq: {
       headline: string;
       questions: { q: string; a: string }[];
+    };
+    footer: {
+      description: string;
+      links: { label: string; href: string }[];
+      disclaimer: string;
     };
   };
   leadForm: {

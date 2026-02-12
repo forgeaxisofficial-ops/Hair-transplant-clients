@@ -6,16 +6,16 @@ import { ChevronDown, ChevronUp } from 'lucide-react';
 const FAQItem: React.FC<{ q: string; a: string }> = ({ q, a }) => {
   const [isOpen, setIsOpen] = useState(false);
   return (
-    <div className="border-b border-slate-200 py-4">
+    <div className="border-b border-brand-primary/10 py-4">
       <button
         onClick={() => setIsOpen(!isOpen)}
         className="w-full flex items-center justify-between text-left group"
       >
-        <span className="text-lg font-bold text-slate-800 group-hover:text-blue-600 transition-colors">{q}</span>
-        {isOpen ? <ChevronUp className="text-slate-400" /> : <ChevronDown className="text-slate-400" />}
+        <span className="text-lg font-bold text-brand-primary/90 group-hover:text-brand-secondary transition-colors">{q}</span>
+        {isOpen ? <ChevronUp className="text-brand-primary/40" /> : <ChevronDown className="text-brand-primary/40" />}
       </button>
       {isOpen && (
-        <div className="mt-3 text-slate-600 leading-relaxed text-sm bg-slate-50 p-4 rounded-xl">
+        <div className="mt-3 text-brand-primary/70 leading-relaxed text-sm bg-brand-primary/5 p-4 rounded-xl">
           {a}
         </div>
       )}
@@ -27,7 +27,7 @@ const FAQ: React.FC = () => {
   return (
     <section className="py-12 bg-white">
       <div className="max-w-3xl mx-auto px-4">
-        <h2 className="text-3xl font-extrabold text-slate-900 mb-8 text-center">
+        <h2 className="text-3xl font-extrabold text-brand-primary mb-8 text-center">
           {APP_CONFIG.copy.faq.headline}
         </h2>
         <div className="space-y-2">

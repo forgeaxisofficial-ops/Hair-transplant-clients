@@ -11,9 +11,12 @@ export const APP_CONFIG: Config = {
     whatsapp: "919876543210",
   },
   theme: {
-    primary: "#e1ff00ff",
-    secondary: "#ff0000ff", // Blue-600
-    accent: "#ffffffff",
+    primary: "#000000ff",
+    secondary: "#d70000ff",
+    accent: "#facbcbff",
+    headlineHighlight: "#f08888ff",
+    stars: "#edab03ff",
+    footerText: "#d6d6d6ff",
   },
   integrations: {
     webhookUrl: "https://clients.spottt.com/webhook-test/client1",
@@ -127,6 +130,15 @@ export const APP_CONFIG: Config = {
         { q: "Will it look natural?", a: "100%. Our surgeons focus on the angle, depth, and direction of each hair to mimic your natural growth pattern." },
         { q: "Is the procedure painful?", a: "We use local anesthesia. You might feel a slight prick initially, but the rest of the 6-hour session is painless." },
       ],
+    },
+    footer: {
+      description: "Premium Hair ij Excellence in",
+      links: [
+        { label: "Privacy Policy", href: "#" },
+        { label: "Terms of Service", href: "#" },
+        { label: "Patient Care", href: "#" },
+      ],
+      disclaimer: "Disclaimer: Hair transplant is a surgical procedure. Results vary significantly between individuals based on donor area density, age, and medical history. Testimonials are shared with patient consent. Images are illustrative of our past results. Consult our experts for a personalized medical plan.",
     },
   },
   leadForm: {

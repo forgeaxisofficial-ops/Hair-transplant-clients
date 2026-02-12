@@ -53,19 +53,20 @@ const App: React.FC = () => {
     formRef.current?.scrollIntoView({ behavior: 'smooth' });
   };
 
+  // Strip alpha channel from 8-char hex so Tailwind opacity modifiers (/60 etc.) work
+  const c = (hex: string) => hex.length === 9 ? hex.slice(0, 7) : hex;
+
   return (
     <div className="min-h-screen bg-slate-50 text-slate-900 selection:bg-blue-100">
       <style>{`
         :root {
-          --brand-primary: ${APP_CONFIG.theme.primary};
-          --brand-secondary: ${APP_CONFIG.theme.secondary};
-          --brand-accent: ${APP_CONFIG.theme.accent};
+          --brand-primary: ${c(APP_CONFIG.theme.primary)};
+          --brand-secondary: ${c(APP_CONFIG.theme.secondary)};
+          --brand-accent: ${c(APP_CONFIG.theme.accent)};
+          --brand-headline-highlight: ${c(APP_CONFIG.theme.headlineHighlight)};
+          --brand-stars: ${c(APP_CONFIG.theme.stars)};
+          --brand-footer-text: ${c(APP_CONFIG.theme.footerText)};
         }
-        .text-brand-primary { color: var(--brand-primary); }
-        .bg-brand-primary { background-color: var(--brand-primary); }
-        .text-brand-secondary { color: var(--brand-secondary); }
-        .bg-brand-secondary { background-color: var(--brand-secondary); }
-        .border-brand-secondary { border-color: var(--brand-secondary); }
 
         .btn-brand { 
           background-color: var(--brand-secondary); 
