@@ -1,48 +1,75 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { APP_CONFIG } from '../config';
 import { Star, ChevronLeft, ChevronRight, Quote } from 'lucide-react';
 
 const Testimonials: React.FC = () => {
   const { testimonials } = APP_CONFIG.copy;
   const [activeIndex, setActiveIndex] = useState(0);
-  const [touchStart, setTouchStart] = useState<number | null>(null);
-  const [touchEnd, setTouchEnd] = useState<number | null>(null);
+  const scrollContainerRef = useRef<HTMLDivElement>(null);
+  const isScrollingRef = useRef(false);
 
   // Auto-advance
   useEffect(() => {
     const timer = setInterval(() => {
-      setActiveIndex((prev) => (prev + 1) % testimonials.items.length);
+      if (!isScrollingRef.current && scrollContainerRef.current) {
+        const nextIndex = (activeIndex + 1) % testimonials.items.length;
+        const width = scrollContainerRef.current.offsetWidth;
+        scrollContainerRef.current.scrollTo({
+          left: nextIndex * width,
+          behavior: 'smooth'
+        });
+      }
     }, 6000);
     return () => clearInterval(timer);
-  }, [testimonials.items.length]);
+  }, [activeIndex, testimonials.items.length]);
 
-  const handleNext = () => setActiveIndex((prev) => (prev + 1) % testimonials.items.length);
-  const handlePrev = () => setActiveIndex((prev) => (prev - 1 + testimonials.items.length) % testimonials.items.length);
-
-  // Swipe handlers
-  const minSwipeDistance = 50;
-
-  const onTouchStart = (e: React.TouchEvent) => {
-    setTouchEnd(null);
-    setTouchStart(e.targetTouches[0].clientX);
-  };
-
-  const onTouchMove = (e: React.TouchEvent) => {
-    setTouchEnd(e.targetTouches[0].clientX);
-  };
-
-  const onTouchEnd = () => {
-    if (!touchStart || !touchEnd) return;
-    const distance = touchStart - touchEnd;
-    const isLeftSwipe = distance > minSwipeDistance;
-    const isRightSwipe = distance < -minSwipeDistance;
-
-    if (isLeftSwipe) {
-      handleNext();
-    } else if (isRightSwipe) {
-      handlePrev();
+  const scrollToSlide = (index: number) => {
+    if (scrollContainerRef.current) {
+      const width = scrollContainerRef.current.offsetWidth;
+      scrollContainerRef.current.scrollTo({
+        left: index * width,
+        behavior: 'smooth'
+      });
     }
   };
+
+  const handleNext = () => {
+    const nextIndex = (activeIndex + 1) % testimonials.items.length;
+    scrollToSlide(nextIndex);
+  };
+
+  const handlePrev = () => {
+    const prevIndex = (activeIndex - 1 + testimonials.items.length) % testimonials.items.length;
+    scrollToSlide(prevIndex);
+  };
+
+  const handleScrollRaw = () => {
+    if (scrollContainerRef.current) {
+      const scrollPosition = scrollContainerRef.current.scrollLeft;
+      const width = scrollContainerRef.current.offsetWidth;
+      const newIndex = Math.round(scrollPosition / width);
+
+      // Only update state if index actually changed to prevent re-renders
+      if (newIndex !== activeIndex) {
+        setActiveIndex(newIndex);
+      }
+
+      // Simple debounce for auto-scroll pause
+      isScrollingRef.current = true;
+      if (window.scrollTimeout) clearTimeout(window.scrollTimeout);
+      window.scrollTimeout = setTimeout(() => {
+        isScrollingRef.current = false;
+      }, 1000);
+    }
+  };
+
+  // Type augmentation for window timeout
+  useEffect(() => {
+    window.scrollTimeout = null;
+    return () => {
+      if (window.scrollTimeout) clearTimeout(window.scrollTimeout);
+    };
+  }, []);
 
   return (
     <section className="py-24 bg-slate-50 overflow-hidden">
@@ -54,18 +81,15 @@ const Testimonials: React.FC = () => {
 
         <div className="relative max-w-5xl mx-auto group">
           {/* Main Carousel Container */}
-          <div
-            className="relative overflow-hidden rounded-[40px] bg-white border border-slate-100 shadow-2xl"
-            onTouchStart={onTouchStart}
-            onTouchMove={onTouchMove}
-            onTouchEnd={onTouchEnd}
-          >
+          <div className="relative rounded-[40px] bg-white border border-slate-100 shadow-2xl overflow-hidden">
             <div
-              className="flex transition-transform duration-500 ease-out"
-              style={{ transform: `translateX(-${activeIndex * 100}%)` }}
+              ref={scrollContainerRef}
+              onScroll={handleScrollRaw}
+              className="flex overflow-x-auto snap-x snap-mandatory scroll-smooth w-full [&::-webkit-scrollbar]:hidden"
+              style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
             >
               {testimonials.items.map((item, idx) => (
-                <div key={idx} className="min-w-full p-8 md:p-14 flex flex-col md:flex-row items-stretch gap-8 md:gap-14 select-none">
+                <div key={idx} className="min-w-full snap-center flex-shrink-0 p-8 md:p-14 flex flex-col md:flex-row items-stretch gap-8 md:gap-14">
                   {/* Before/After Visualization */}
                   <div className="w-full md:w-1/2 flex flex-col gap-3">
                     <div className="grid grid-cols-2 gap-2 flex-1 min-h-[220px]">
@@ -131,7 +155,7 @@ const Testimonials: React.FC = () => {
             {testimonials.items.map((_, i) => (
               <button
                 key={i}
-                onClick={() => setActiveIndex(i)}
+                onClick={() => scrollToSlide(i)}
                 className={`transition-all duration-300 rounded-full ${activeIndex === i ? 'w-8 h-2 bg-blue-600' : 'w-2 h-2 bg-slate-300 hover:bg-blue-400'}`}
                 aria-label={`Go to slide ${i + 1}`}
               />
@@ -142,5 +166,12 @@ const Testimonials: React.FC = () => {
     </section>
   );
 };
+
+// Add global declaration for scrollTimeout if needed in strict TS environments, usually fine in JS/TSX context if understood
+declare global {
+  interface Window {
+    scrollTimeout: any;
+  }
+}
 
 export default Testimonials;

@@ -28,7 +28,7 @@ const VSL: React.FC<VSLProps> = ({ onCTAClick }) => {
             </div>
           ))}
         </div>
-        
+
         {/* Video Player: 90% Width for focus */}
         <div className="max-w-[90%] mx-auto relative group">
           <div className="absolute -inset-1 bg-brand-secondary/20 rounded-[32px] blur-xl opacity-0 group-hover:opacity-100 transition-opacity"></div>
@@ -42,7 +42,7 @@ const VSL: React.FC<VSLProps> = ({ onCTAClick }) => {
             ></iframe>
           </div>
         </div>
-        
+
         {/* Disclaimer */}
         <p className="mt-6 text-slate-500 text-[10px] sm:text-xs italic uppercase tracking-widest font-bold">
           *Individual results may vary based on donor density
@@ -50,7 +50,7 @@ const VSL: React.FC<VSLProps> = ({ onCTAClick }) => {
 
         {/* Primary CTA: Significantly increased size, highlight, and pulse */}
         <div className="mt-12 sm:mt-16">
-          <button 
+          <button
             onClick={onCTAClick}
             className="w-full sm:w-auto px-10 sm:px-24 py-6 sm:py-9 btn-brand btn-highlight rounded-2xl sm:rounded-[40px] font-black text-xl sm:text-4xl shadow-[0_20px_50px_-10px_rgba(37,99,235,0.6)] transition-all transform hover:scale-105 active:scale-95 border-2 border-white/20 uppercase tracking-tight"
           >
@@ -59,12 +59,12 @@ const VSL: React.FC<VSLProps> = ({ onCTAClick }) => {
         </div>
 
         {/* Benefit Pills & Phone Block: Reduced spacing from CTA */}
-        <div className="mt-12 sm:mt-14 pt-10 border-t border-slate-800/50">
+        <div className="mt-1 sm:mt-14 pt-10 border-t border-slate-800/50">
           <div className="flex flex-wrap justify-center gap-2 sm:gap-2.5 mb-10">
             {[
-              "Pay Per Graft", 
-              "Life-time Growth", 
-              "0% Interest EMI", 
+              "Pay Per Graft",
+              "Life-time Growth",
+              "0% Interest EMI",
               "Expert Surgeons"
             ].map((feature, i) => (
               <div key={i} className="flex items-center gap-1.5 text-[9px] sm:text-xs font-black text-slate-300 bg-slate-800/50 border border-slate-700 px-4 py-2.5 rounded-full shadow-inner">
@@ -76,7 +76,7 @@ const VSL: React.FC<VSLProps> = ({ onCTAClick }) => {
 
           <div className="flex flex-col items-center">
             <p className="text-slate-500 font-black text-[10px] uppercase tracking-[0.2em] mb-4">Or speak with our expert now</p>
-            <a 
+            <a
               href={`tel:${APP_CONFIG.brand.phone}`}
               className="flex items-center gap-3 text-2xl sm:text-3xl font-black text-white hover:text-brand-secondary transition-all active:scale-95 group"
             >
