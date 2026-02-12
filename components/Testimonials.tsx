@@ -97,7 +97,7 @@ const Testimonials: React.FC = () => {
                             <button
                                 key={i}
                                 onClick={() => setActiveIndex(i)}
-                                className={`w-2.5 h-2.5 rounded-full transition-all ${activeIndex === i ? 'bg-brand-secondary w-8' : 'bg-brand-primary/20'}`}
+                                className={`w-2.5 h-2.5 rounded-full transition-all ${activeIndex === i ? 'bg-brand-secondary w-8' : 'bg-brand-primary'}`}
                             />
                         ))}
                     </div>
