@@ -30,6 +30,8 @@ export interface Config {
     address: string;
     phone: string;
     whatsapp: string;
+    locationImage: string;
+    googleMapsUrl: string;
   };
   theme: {
     primary: string; // Hex color

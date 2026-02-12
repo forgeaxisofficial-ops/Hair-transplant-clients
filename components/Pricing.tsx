@@ -23,9 +23,9 @@ const Pricing: React.FC<{ onCTAClick: () => void }> = ({ onCTAClick }) => {
                 <h3 className="text-2xl font-bold text-brand-primary">Premium Inclusion Package</h3>
               </div>
 
-              <div className="grid sm:grid-cols-1 gap-5 mb-8">
+              <div className="grid sm:grid-cols-1 gap-1 mb-8">
                 {pricing.points.map((point, i) => (
-                  <div key={i} className="flex items-start gap-4 p-4 bg-brand-primary/5 rounded-2xl hover:bg-brand-secondary/10 transition-colors border border-transparent hover:border-brand-secondary/20">
+                  <div key={i} className="flex items-start gap-4 p-4 pb-3 bg-brand-primary/5 rounded-2xl hover:bg-brand-secondary/10 transition-colors border border-transparent hover:border-brand-secondary/20">
                     <CheckCircle size={22} className="text-brand-secondary shrink-0 mt-0.5" />
                     <span className="text-brand-primary/70 font-bold leading-snug">{point}</span>
                   </div>

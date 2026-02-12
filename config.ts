@@ -9,6 +9,8 @@ export const APP_CONFIG: Config = {
     address: "B-42, GK-1, Near M-Block Market, New Delhi 110048",
     phone: "+91-9876543210",
     whatsapp: "919876543210",
+    locationImage: "https://images.unsplash.com/photo-1629909613654-28e377c37b09?q=80&w=2070&auto=format&fit=crop",
+    googleMapsUrl: "https://maps.google.com/?q=B-42,+GK-1,+Near+M-Block+Market,+New+Delhi+110048",
   },
   theme: {
     primary: "#000000ff",
