@@ -13,17 +13,22 @@ export const APP_CONFIG: Config = {
     googleMapsUrl: "https://maps.google.com/?q=B-42,+GK-1,+Near+M-Block+Market,+New+Delhi+110048",
   },
   theme: {
-    primary: "#000000ff",
-    secondary: "#d70000ff",
-    accent: "#facbcbff",
-    headlineHighlight: "#f08888ff",
-    stars: "#edab03ff",
-    footerText: "#d6d6d6ff",
+    primary: "#0a0a0fff",          // near-black with blue undertone
+    secondary: "#5a1effff",        // neon cyan
+    accent: "#ffffffff",           // dark indigo surface
+    headlineHighlight: "#8c00ffff",// neon pink highlight
+    stars: "#ffe600ff",            // electric yellow
+    footerText: "#cbd5e1ff",       // cool light gray
   },
+
+
+
+
+
+
   integrations: {
     webhookUrl: "https://clients.spottt.com/webhook-test/client1",
     pixelId: "1234567890",
-    redirectUrl: "/thank-you",
   },
   copy: {
     hero: {

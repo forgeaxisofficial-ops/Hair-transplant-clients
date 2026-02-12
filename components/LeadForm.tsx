@@ -35,9 +35,6 @@ const LeadForm: React.FC = () => {
 
       if (response.ok) {
         setStatus('success');
-        if (integrations.redirectUrl) {
-          window.location.href = integrations.redirectUrl;
-        }
       } else {
         setStatus('error');
       }

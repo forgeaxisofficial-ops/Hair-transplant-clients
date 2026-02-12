@@ -45,7 +45,6 @@ export interface Config {
     webhookUrl: string;
     pixelId?: string;
     analyticsId?: string;
-    redirectUrl?: string;
   };
   copy: {
     hero: {
